@@ -2,20 +2,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace ConsoleApp1
 {
     class MergeSort
 
     {
+
         public static void Main()
         {
             int[] arr = { 10, 80, 7, 25, 30, 40, 5, 70, 30 }; ///7,10,5,15
             int n = arr.Length;
-            mergeSort(arr, 0, n -1);
-            Console.WriteLine("sorted array ");
-            printArray(arr, n);
+
+            StringBuilder test =  new StringBuilder("before passing");
+            Console.WriteLine(test);
+            TestI(test);
+            Console.WriteLine(test);
+
+            //mergeSort(arr, 0, n -1);
+            //Console.WriteLine("sorted array ");
+            //printArray(arr, n);
             Console.ReadLine();
+        }
+
+        public static void TestI(StringBuilder test)
+        {
+            test = test.Append("after passing") ;
         }
 
         /*  */
