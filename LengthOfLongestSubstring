@@ -1,0 +1,29 @@
+class Program
+    {
+        static void Main(string[] args)
+        {
+            string s = "aab"; //aab "dvdf" "bbbbb"
+            Hashtable ht = new Hashtable();
+            int count = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (!ht.ContainsKey(s[i]))
+                {
+                    ht.Add(s[i], i);
+                }
+                else
+                {
+                    count = Math.Max(count, ht.Count);
+                    int index = (int)ht[s[i]];
+                    ht.Clear();
+                    for (int j = index +1; j <= i; j++)
+                    {
+                        if(!ht.ContainsKey(s[j])) 
+                            ht.Add(s[j], j);
+                    }
+                }
+            }
+            Console.WriteLine(Math.Max(count, ht.Count));
+            Console.ReadLine();
+        }
+    }
