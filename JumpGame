@@ -1,0 +1,30 @@
+     static void Main(string[] args)
+        {
+            int[] A = new int[] { 1,4,3,7,1,2,6,7,6,10 };
+
+            int ladder = A[0]; // largest ladder
+            int stairs = A[0]; // stairs in current ladder
+            int jump = 1;
+            if (A.Length == 1 || A[0] ==0)
+            {
+                jump = 0;
+            }
+
+            for (int level = 1; level < A.Length - 1; level++)
+            {
+                if (level + A[level] > ladder)
+                {
+                    ladder = level + A[level];
+                }
+
+                stairs--;
+                if (stairs == 0)
+                {
+                    jump++;
+                    stairs = ladder - level;
+                }
+            }
+
+            Console.WriteLine(jump);
+            Console.ReadLine();
+        }
