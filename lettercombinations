@@ -1,0 +1,29 @@
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			Console.WriteLine("Hello World!");
+			List<string> arr = new List<string>();
+
+			string[] mappings = { "0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz" };
+
+			letterCombinations(arr, "23", "", 0, mappings);
+
+			Console.ReadLine();
+		}
+
+		private static void letterCombinations(List<string> arr, string digits, string current, int index, string[] mappings)
+		{
+			if (index == digits.Length)
+			{
+				arr.Add(current);
+				return;
+			}
+
+			string letters = mappings[digits[index] - '0'];
+			for (int i = 0; i < letters.Length; i++)
+			{
+				letterCombinations(arr, digits, current + letters[i], index + 1, mappings);
+			}
+		}
+	}
